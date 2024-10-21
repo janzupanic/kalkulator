@@ -1,24 +1,27 @@
 import {createSignal} from "solid-js";
 
-function App() {
-  return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
-    </div>
-  );
-}
+export default function Forms(props) {
+  const [secondNumber, setSecondNumber] = createSignal();
 
-export default App;
+  function submit(event) {
+    event.preventDefault();
+    const FormData = new FormData(event.target);
+    const number = formData.get("number");
+    console.log("Upisali ste broj: " +number);
+    setSecondNumber(number);
+  }
+
+  return (
+    <div>
+      <form onSubmit={submit}>
+        <input type="text" name="number" />
+        <input type="submit" value="Potvrdi" />
+      </form>
+      
+      <input type="number" value={secondNumber()} onInput={(event) => setSecondNumber(event.target.value)} />
+      
+  <div>Drugi broj je: {secondNumber()}</div>
+
+  </div>
+);
+}
