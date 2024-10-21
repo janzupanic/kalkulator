@@ -21,7 +21,7 @@ export default function Forms(props) {
 
             <input type="number" value={secondNumber()} onInput = {(event) => setSecondNumber(event.target.value) } />
            
-           <div>Drugi broj je: {secondNumber()}</div>
+           <div>Drugi broj je {secondNumber()}</div>
             
         </div>
     );
