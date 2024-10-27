@@ -13,23 +13,24 @@ export default function Kalkulator() {
       setError(""); 
       const iznos = parseFloat(ciljaniIznos());
       const stednja = parseFloat(mjesecnaStednja());
-      
-      
 
 
       if ((isNaN(iznos) || iznos <= 0) && (isNaN(stednja) || stednja <= 0)) {
         setError("Molimo unesite ispravne vrijednosti za ciljani iznos i mjesečnu štednju.");
+        setBrojMjeseci(null);
         return;
     }
 
 
       if (isNaN(iznos) || iznos <= 0 ) {
         setError("Molimo unesite ispravne vrijednosti za ciljani iznos.");
+        setBrojMjeseci(null);
         return;
     }
 
     if (isNaN(stednja) || stednja <= 0 ) {
       setError("Molimo unesite ispravne vrijednosti za mjesečnu štednju.");
+      setBrojMjeseci(null);
       return;
   }
 
